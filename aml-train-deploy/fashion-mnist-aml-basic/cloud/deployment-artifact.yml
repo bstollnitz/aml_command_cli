@@ -1,0 +1,6 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+name: blue
+endpoint_name: endpoint-aml-job
+model: azureml:model-aml-job-from-artifact:1
+instance_type: Standard_DS3_v2
+instance_count: 1

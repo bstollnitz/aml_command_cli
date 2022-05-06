@@ -1,0 +1,15 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+
+type: command
+description: Trains a simple neural network on the Fashion-MNIST dataset.
+compute: azureml:cluster-cpu
+
+inputs:
+  fashion_mnist:
+    path: azureml:data-fashion-mnist:2
+
+code: ../src
+environment:
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest
+  conda_file: conda-train.yml
+command: python train_artifact.py --data_dir ${{inputs.fashion_mnist}}
