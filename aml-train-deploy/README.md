@@ -18,7 +18,7 @@ conda env create -f environment.yml
 Activate conda environment:
 
 ```
-conda activate fashion-mnist-pytorch
+conda activate aml-train-deploy
 ```
 
 

@@ -1,4 +1,4 @@
-name: aml-job
+name: aml-train-deploy
 channels:
   - pytorch
   - conda-forge
