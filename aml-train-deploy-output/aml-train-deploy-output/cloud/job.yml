@@ -7,9 +7,12 @@ compute: azureml:cluster-cpu
 inputs:
   fashion_mnist:
     path: azureml:data-fashion-mnist:2
+outputs:
+  trained_model_output:
+    type: mlflow_model
 
 code: ../src
 environment:
   image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest
   conda_file: conda-train.yml
-command: python train_artifact.py --data_dir ${{inputs.fashion_mnist}}
+command: python train.py --data_dir ${{inputs.fashion_mnist}} --model_dir ${{outputs.trained_model_output}}

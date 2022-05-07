@@ -18,15 +18,19 @@ conda env create -f environment.yml
 Activate conda environment:
 
 ```
-conda activate aml-train-deploy
+conda activate aml-train-deploy-output
 ```
 
 
 ## Run the notebook locally
 
-Get familiar with the code in the experiment.ipynb notebook, and run it. This accomplishes a couple of useful tasks:
+Get familiar with the code in the experiment.ipynb notebook, and run it. The notebook accomplishes the following:
+
 * Downloads the data into the "data" folder.
-* Creates json and csv versions of the test image, which we'll use to make predictions.
+* Trains a model with that data, and saves the trained model in the "model_from_notebook" folder.
+* Tests the trained model with test data.
+* Makes a prediction using the test image.
+* Creates json and csv versions of the test image, which we'll use to make predictions with mlflow and Azure ML. (These files are checked in with the project, but I included the code here so you can see how they were generated.)
  
 
 ## Train and predict locally
@@ -37,6 +41,8 @@ Get familiar with the code in the experiment.ipynb notebook, and run it. This ac
 ```
 mlflow ui
 ```
+
+* Set the model_uri environment variable to the model you want to use in prediction. You can use the model created in the latest train run, which train.py prints. Or you can choose one from the mlflow UI. For example:
 
 * Make a local prediction using the trained mlflow model. You can use either csv or json files:
 
