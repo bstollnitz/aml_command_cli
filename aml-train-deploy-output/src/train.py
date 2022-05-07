@@ -18,8 +18,8 @@ from torchvision.transforms import ToTensor
 from neural_network import NeuralNetwork
 from utils_train_nn import evaluate, fit
 
-DATA_DIR = "aml-train-deploy-output/aml-train-deploy-output/data"
-MODEL_DIR = "aml-train-deploy-output/aml-train-deploy-output/trained_model_output/"
+DATA_DIR = "aml-train-deploy-output/data"
+MODEL_DIR = "aml-train-deploy-output/trained_model_output/"
 
 LABELS_MAP = {
     0: "T-Shirt",
@@ -115,9 +115,7 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_dir", dest="data_dir", default=DATA_DIR)
-    parser.add_argument("--model_dir",
-                        dest="model_dir",
-                        default=MODEL_DIR)
+    parser.add_argument("--model_dir", dest="model_dir", default=MODEL_DIR)
     args = parser.parse_args()
     logging.info("input parameters: %s", args)
 

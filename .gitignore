@@ -130,7 +130,5 @@ dmypy.json
 
 data/
 model_from_notebook/
-trained_model_output/
-mlruns/
 named-outputs/
-artifacts/
+mlruns/

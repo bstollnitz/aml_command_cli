@@ -42,17 +42,19 @@ Get familiar with the code in the experiment.ipynb notebook, and run it. The not
 mlflow ui
 ```
 
-* Set the model_uri environment variable to the model you want to use in prediction. You can use the model created in the latest train run, which train.py prints. Or you can choose one from the mlflow UI. For example:
-
 * Make a local prediction using the trained mlflow model. You can use either csv or json files:
 
 ```
-mlflow models predict --model-uri "trained_model_output" --input-path "test_image/predict_image.csv" --content-type csv
-mlflow models predict --model-uri "trained_model_output" --input-path "test_image/predict_image.json" --content-type json
+mlflow models predict --model-uri "aml-train-deploy-output/trained_model_output" --input-path "aml-train-deploy-output/test_image/predict_image.csv" --content-type csv
+mlflow models predict --model-uri "aml-train-deploy-output/trained_model_output" --input-path "aml-train-deploy-output/test_image/predict_image.json" --content-type json
 ```
 
 
 ## Train and deploy in the cloud
+
+```
+cd aml-train-deploy-output
+```
 
 Create the compute cluster.
 
@@ -75,13 +77,13 @@ run_id=$(az ml job create -f cloud/job.yml --query name -o tsv)
 You don't need to download the trained model, but here's how you would do it if you wanted to:
 
 ```
-az ml job download --name $run_id
+az ml job download --name $run_id --output-name "trained_model_output"
 ```
 
-Create the Azure ML model from the trained model saved as an artifact by the training code.
+Create the Azure ML model from the output.
 
 ```
-az ml model create --name model-aml --version 1 --path runs:/$run_id/trained_model_artifact --type mlflow_model
+az ml model create --name model-aml-train-deploy-output --version 1 --path "azureml://jobs/$run_id/outputs/trained_model_output" --type mlflow_model
 ```
 
 Create the endpoint.
@@ -94,5 +96,5 @@ az ml online-deployment create -f cloud/deployment.yml --all-traffic
 Invoke the endpoint.
 
 ```
-az ml online-endpoint invoke --name endpoint-aml --request-file test_image/predict_image_azureml.json
+az ml online-endpoint invoke --name endpoint-aml-train-deploy-output --request-file test_image/predict_image_azureml.json
 ```
