@@ -1,4 +1,4 @@
-name: aml-train-deploy-output
+name: aml-command-output
 channels:
   - pytorch
   - conda-forge

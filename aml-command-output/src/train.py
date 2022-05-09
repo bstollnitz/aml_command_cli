@@ -18,8 +18,8 @@ from torchvision.transforms import ToTensor
 from neural_network import NeuralNetwork
 from utils_train_nn import evaluate, fit
 
-DATA_DIR = "aml-train-deploy-output/data"
-MODEL_DIR = "aml-train-deploy-output/trained_model_output/"
+DATA_DIR = "aml-command-output/data"
+MODEL_DIR = "aml-command-output/trained_model_output/"
 
 LABELS_MAP = {
     0: "T-Shirt",
