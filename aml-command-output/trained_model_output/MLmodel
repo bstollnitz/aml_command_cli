@@ -9,5 +9,5 @@ flavors:
   pytorch:
     model_data: data
     pytorch_version: 1.8.1
-model_uuid: 8005b1c8fcb346d4a1f6c83155e4296c
-utc_time_created: '2022-05-09 16:37:27.796803'
+model_uuid: b403cc716800439a91cad46e092149d4
+utc_time_created: '2022-05-11 18:44:13.827497'
