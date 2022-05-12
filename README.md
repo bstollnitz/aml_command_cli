@@ -18,7 +18,7 @@ conda env create -f environment.yml
 Activate conda environment:
 
 ```
-conda activate aml-train-deploy-output
+conda activate aml-command-output
 ```
 
 
@@ -53,7 +53,7 @@ mlflow models predict --model-uri "aml-train-deploy-output/trained_model_output"
 ## Train and deploy in the cloud
 
 ```
-cd aml-train-deploy-output
+cd aml-command-output
 ```
 
 Create the compute cluster.
@@ -83,7 +83,7 @@ az ml job download --name $run_id --output-name "trained_model_output"
 Create the Azure ML model from the output.
 
 ```
-az ml model create --name model-aml-train-deploy-output --version 1 --path "azureml://jobs/$run_id/outputs/trained_model_output" --type mlflow_model
+az ml model create --name model-command-output --version 1 --path "azureml://jobs/$run_id/outputs/trained_model_output" --type mlflow_model
 ```
 
 Create the endpoint.
@@ -96,5 +96,5 @@ az ml online-deployment create -f cloud/deployment.yml --all-traffic
 Invoke the endpoint.
 
 ```
-az ml online-endpoint invoke --name endpoint-aml-train-deploy-output --request-file test_image/predict_image_azureml.json
+az ml online-endpoint invoke --name endpoint-command-output --request-file test_image/predict_image_azureml.json
 ```
