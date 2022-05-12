@@ -6,7 +6,7 @@ compute: azureml:cluster-cpu
 
 inputs:
   fashion_mnist:
-    path: azureml:data-fashion-mnist:2
+    path: azureml:data-fashion-mnist@latest
 outputs:
   trained_model_output:
     type: mlflow_model
