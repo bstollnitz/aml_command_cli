@@ -45,8 +45,8 @@ mlflow ui
 * Make a local prediction using the trained mlflow model. You can use either csv or json files:
 
 ```
-mlflow models predict --model-uri "aml-train-deploy-output/trained_model_output" --input-path "aml-train-deploy-output/test_image/predict_image.csv" --content-type csv
-mlflow models predict --model-uri "aml-train-deploy-output/trained_model_output" --input-path "aml-train-deploy-output/test_image/predict_image.json" --content-type json
+mlflow models predict --model-uri "aml-command-output/trained_model_output" --input-path "aml-command-output/test_image/predict_image.csv" --content-type csv
+mlflow models predict --model-uri "aml-command-output/trained_model_output" --input-path "aml-command-output/test_image/predict_image.json" --content-type json
 ```
 
 
@@ -59,7 +59,7 @@ cd aml-command-output
 Create the compute cluster.
 
 ```
-az ml compute create -f cloud/cluster-cpu.yml 
+az ml compute create -f cloud/cluster-gpu.yml 
 ```
 
 Create the dataset.
