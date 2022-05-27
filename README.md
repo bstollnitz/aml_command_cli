@@ -18,7 +18,7 @@ This project shows how to train a Fashion MNIST model with an Azure ML job, and 
 * Although not essential to run the code in this post, I highly recommend installing the [Azure Machine Learning extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
 
-## Setup
+## Project setup
 
 If you have access to GitHub Codespaces, click on the "Code" button in this GitHub repo, select the "Codespaces" tab, and then click on "New codespace".
 
