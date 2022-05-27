@@ -45,7 +45,7 @@ def load_train_val_data(
     """
     full_train_data = datasets.FashionMNIST(data_dir,
                                             train=True,
-                                            download=False,
+                                            download=True,
                                             transform=ToTensor())
     full_train_len = len(full_train_data)
     train_len = int(full_train_len * training_fraction)
