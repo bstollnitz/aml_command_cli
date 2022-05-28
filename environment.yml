@@ -13,3 +13,5 @@ dependencies:
   - yapf==0.31.0
   - pylint==2.12.2
   - ipykernel==6.9.1
+  - mypy==0.910
+  
