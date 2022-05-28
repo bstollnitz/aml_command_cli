@@ -37,17 +37,6 @@ conda activate aml-command-output
 ```
 
 
-## Run the notebook locally
-
-Get familiar with the code in the experiment.ipynb notebook, and run it. The notebook accomplishes the following:
-
-* Downloads the data into the "data" folder.
-* Trains a model with that data, and saves the trained model in the "model_from_notebook" folder.
-* Tests the trained model with test data.
-* Makes a prediction using the test image.
-* Creates json and csv versions of the test image, which we'll use to make predictions with mlflow and Azure ML. (These files are checked in with the project, but I included the code here so you can see how they were generated.)
- 
-
 ## Train and predict locally
 
 * Run train.py by pressing F5.
