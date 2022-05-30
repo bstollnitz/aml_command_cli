@@ -49,8 +49,8 @@ mlflow ui
 * Make a local prediction using the trained mlflow model. You can use either csv or json files:
 
 ```
-mlflow models predict --model-uri "aml-command-output/trained_model_output" --input-path "aml-command-output/test_image/predict_image.csv" --content-type csv
-mlflow models predict --model-uri "aml-command-output/trained_model_output" --input-path "aml-command-output/test_image/predict_image.json" --content-type json
+mlflow models predict --model-uri "aml-command-output/trained_model_output" --input-path "aml-command-output/test-data/images.csv" --content-type csv
+mlflow models predict --model-uri "aml-command-output/trained_model_output" --input-path "aml-command-output/test-data/images.json" --content-type json
 ```
 
 
@@ -100,5 +100,5 @@ az ml online-deployment create -f cloud/deployment.yml --all-traffic
 Invoke the endpoint.
 
 ```
-az ml online-endpoint invoke --name endpoint-command-output --request-file test_image/predict_image_azureml.json
+az ml online-endpoint invoke --name endpoint-command-output --request-file test-data/images_azureml.json
 ```
