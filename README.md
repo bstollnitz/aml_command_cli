@@ -20,7 +20,7 @@ This project shows how to train a Fashion MNIST model with an Azure ML job, and 
 
 ## Project setup
 
-If you have access to GitHub Codespaces, click on the "Code" button in this GitHub repo, select the "Codespaces" tab, and then click on "New codespace".
+If you have access to GitHub Codespaces, click on the "Code" button in this GitHub repo, select the "Codespaces" tab, and then click on "New codespace."
 
 Alternatively, you can set up your local machine using the following steps.
 
