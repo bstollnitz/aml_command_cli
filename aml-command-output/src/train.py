@@ -19,20 +19,7 @@ from neural_network import NeuralNetwork
 from utils_train_nn import evaluate, fit
 
 DATA_DIR = "aml-command-output/data"
-MODEL_DIR = "aml-command-output/trained_model_output/"
-
-LABELS_MAP = {
-    0: "T-Shirt",
-    1: "Trouser",
-    2: "Pullover",
-    3: "Dress",
-    4: "Coat",
-    5: "Sandal",
-    6: "Shirt",
-    7: "Sneaker",
-    8: "Bag",
-    9: "Ankle Boot",
-}
+MODEL_DIR = "aml-command-output/model/"
 
 
 def load_train_val_data(

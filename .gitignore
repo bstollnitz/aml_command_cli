@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 data/
-trained_model_output/
+model/
 mlruns/

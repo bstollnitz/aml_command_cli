@@ -49,8 +49,8 @@ mlflow ui
 * Make a local prediction using the trained mlflow model. You can use either csv or json files:
 
 ```
-mlflow models predict --model-uri "aml-command-output/trained_model_output" --input-path "aml-command-output/test-data/images.csv" --content-type csv
-mlflow models predict --model-uri "aml-command-output/trained_model_output" --input-path "aml-command-output/test-data/images.json" --content-type json
+mlflow models predict --model-uri "aml-command-output/model" --input-path "aml-command-output/test-data/images.csv" --content-type csv
+mlflow models predict --model-uri "aml-command-output/model" --input-path "aml-command-output/test-data/images.json" --content-type json
 ```
 
 
@@ -81,13 +81,13 @@ run_id=$(az ml job create -f cloud/job.yml --query name -o tsv)
 You don't need to download the trained model, but here's how you would do it if you wanted to:
 
 ```
-az ml job download --name $run_id --output-name "trained_model_output"
+az ml job download --name $run_id --output-name "model"
 ```
 
 Create the Azure ML model from the output.
 
 ```
-az ml model create --name model-command-output --version 1 --path "azureml://jobs/$run_id/outputs/trained_model_output" --type mlflow_model
+az ml model create --name model-command-output --version 1 --path "azureml://jobs/$run_id/outputs/model" --type mlflow_model
 ```
 
 Create the endpoint.

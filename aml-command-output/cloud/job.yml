@@ -8,11 +8,11 @@ inputs:
   fashion_mnist:
     path: azureml:data-fashion-mnist@latest
 outputs:
-  trained_model_output:
+  model:
     type: mlflow_model
 
 code: ../src
 environment:
-  build:
-    path: environment/
-command: python train.py --data_dir ${{inputs.fashion_mnist}} --model_dir ${{outputs.trained_model_output}}
+  image: mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04:latest
+  conda_file: conda.yml
+command: python train.py --data_dir ${{inputs.fashion_mnist}} --model_dir ${{outputs.model}}

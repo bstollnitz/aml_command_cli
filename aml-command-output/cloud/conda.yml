@@ -1,4 +1,3 @@
-name: aml-command-output
 channels:
   - anaconda
   - pytorch
@@ -7,9 +6,10 @@ dependencies:
   - python==3.10.4
   - pytorch==1.11.0
   - torchvision==0.12.0
-  - pillow==9.0.1
   - tqdm==4.64.0
   - mlflow==1.26.0
-  - yapf==0.31.0
-  - pylint==2.12.2
-  - mypy==0.910
+  - pip==21.2.4
+  - pip:
+      - azure-ml==0.0.1
+      - azureml-mlflow==1.41.0
+      - azureml-core==1.41.0
