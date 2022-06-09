@@ -72,12 +72,13 @@ Create the dataset.
 az ml data create -f cloud/data.yml 
 ```
 
-Run the training job. Go to the Azure ML Studio and wait until the Experiment completes.
+Run the training job.
 
 ```
 run_id=$(az ml job create -f cloud/job.yml --query name -o tsv)
 ```
 
+Go to the Azure ML Studio and wait until the Job completes.
 You don't need to download the trained model, but here's how you would do it if you wanted to:
 
 ```
