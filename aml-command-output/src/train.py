@@ -3,8 +3,6 @@
 import argparse
 import logging
 import shutil
-import tempfile
-import uuid
 from pathlib import Path
 from typing import Tuple
 
@@ -53,16 +51,11 @@ def save_model(model_dir, model: nn.Module) -> None:
     full_code_paths = [
         Path(Path(__file__).parent, code_path) for code_path in code_paths
     ]
-
-    temp_path = Path(tempfile.gettempdir(), str(uuid.uuid4()))
-    logging.info("Saving model to %s", temp_path)
-    mlflow.pytorch.save_model(pytorch_model=model,
-                              path=temp_path,
-                              code_paths=full_code_paths)
-
-    logging.info("Copying model to %s", model_dir)
     shutil.rmtree(model_dir, ignore_errors=True)
-    shutil.copytree(temp_path, model_dir, dirs_exist_ok=True)
+    logging.info("Saving model to %s", model_dir)
+    mlflow.pytorch.save_model(pytorch_model=model,
+                              path=model_dir,
+                              code_paths=full_code_paths)
 
 
 def train(data_dir: str, model_dir: str, device: str) -> None:
