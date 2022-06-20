@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 name: blue
-endpoint_name: endpoint-command-output
-model: azureml:model-command-output@latest
-instance_type: Standard_NC6s_v3
+endpoint_name: endpoint-command-cli
+model: azureml:model-command-cli@latest
+instance_type: Standard_DS4_v2
 instance_count: 1

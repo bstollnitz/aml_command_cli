@@ -1,4 +1,4 @@
-name: aml-command-output
+name: aml_command_cli
 channels:
   - anaconda
   - pytorch

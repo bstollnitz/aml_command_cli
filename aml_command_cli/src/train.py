@@ -16,8 +16,8 @@ from torchvision.transforms import ToTensor
 from neural_network import NeuralNetwork
 from utils_train_nn import evaluate, fit
 
-DATA_DIR = "aml-command-output/data"
-MODEL_DIR = "aml-command-output/model/"
+DATA_DIR = "aml_command_cli/data"
+MODEL_DIR = "aml_command_cli/model/"
 
 
 def load_train_val_data(

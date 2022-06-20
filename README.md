@@ -33,7 +33,7 @@ conda env create -f environment.yml
 Activate conda environment:
 
 ```
-conda activate aml-command-output
+conda activate aml_command_cli
 ```
 
 
@@ -49,21 +49,21 @@ mlflow ui
 * Make a local prediction using the trained mlflow model. You can use either csv or json files:
 
 ```
-mlflow models predict --model-uri "aml-command-output/model" --input-path "aml-command-output/test-data/images.csv" --content-type csv
-mlflow models predict --model-uri "aml-command-output/model" --input-path "aml-command-output/test-data/images.json" --content-type json
+mlflow models predict --model-uri "aml_command_cli/model" --input-path "aml_command_cli/test_data/images.csv" --content-type csv
+mlflow models predict --model-uri "aml_command_cli/model" --input-path "aml_command_cli/test_data/images.json" --content-type json
 ```
 
 
 ## Train and deploy in the cloud
 
 ```
-cd aml-command-output
+cd aml_command_cli
 ```
 
 Create the compute cluster.
 
 ```
-az ml compute create -f cloud/cluster-gpu.yml 
+az ml compute create -f cloud/cluster-cpu.yml 
 ```
 
 Create the dataset.
@@ -88,7 +88,7 @@ az ml job download --name $run_id --output-name "model"
 Create the Azure ML model from the output.
 
 ```
-az ml model create --name model-command-output --version 1 --path "azureml://jobs/$run_id/outputs/model" --type mlflow_model
+az ml model create --name model-command-cli --version 1 --path "azureml://jobs/$run_id/outputs/model" --type mlflow_model
 ```
 
 Create the endpoint.
@@ -101,5 +101,5 @@ az ml online-deployment create -f cloud/deployment.yml --all-traffic
 Invoke the endpoint.
 
 ```
-az ml online-endpoint invoke --name endpoint-command-output --request-file test-data/images_azureml.json
+az ml online-endpoint invoke --name endpoint-command-cli --request-file test-data/images_azureml.json
 ```
