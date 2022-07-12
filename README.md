@@ -1,6 +1,6 @@
 # How to train and deploy in Azure ML
 
-This project shows how to train a Fashion MNIST model with an Azure ML job, and how to deploy it using an online managed endpoint. It uses MLflow for tracking and model representation.
+This project shows how to train a Fashion MNIST model with an Azure ML job, and how to deploy it using an online managed endpoint. It uses the Azure ML CLI, and MLflow for tracking and model representation.
 
 ## Azure setup
 
