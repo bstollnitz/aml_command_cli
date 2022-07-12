@@ -2,3 +2,4 @@ $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: data-fashion-mnist
 description: Fashion MNIST Dataset.
 path: ../data/
+type: uri_folder

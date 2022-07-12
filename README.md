@@ -79,16 +79,16 @@ run_id=$(az ml job create -f cloud/job.yml --query name -o tsv)
 ```
 
 Go to the Azure ML Studio and wait until the Job completes.
+Create the Azure ML model from the output.
+
+```
+az ml model create --name model-command-cli --path "azureml://jobs/$run_id/outputs/model" --type mlflow_model
+```
+
 You don't need to download the trained model, but here's how you would do it if you wanted to:
 
 ```
 az ml job download --name $run_id --output-name "model"
-```
-
-Create the Azure ML model from the output.
-
-```
-az ml model create --name model-command-cli --version 1 --path "azureml://jobs/$run_id/outputs/model" --type mlflow_model
 ```
 
 Create the endpoint.
