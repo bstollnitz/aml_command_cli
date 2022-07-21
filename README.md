@@ -39,10 +39,6 @@ conda activate aml_command_cli
 
 ## Train and predict locally
 
-```
-cd aml_command_cli
-```
-
 * Run train.py by pressing F5.
 * Analyze the metrics logged in the "mlruns" directory with the following command:
 
@@ -53,6 +49,7 @@ mlflow ui
 * Make a local prediction using the trained mlflow model. You can use either csv or json files:
 
 ```
+cd aml_command_cli
 mlflow models predict --model-uri "model" --input-path "test_data/images.csv" --content-type csv
 mlflow models predict --model-uri "model" --input-path "test_data/images.json" --content-type json
 ```
