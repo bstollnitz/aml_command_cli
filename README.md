@@ -106,3 +106,11 @@ Cleanup the endpoint, to avoid getting charged.
 ```
 az ml online-endpoint delete --name endpoint-command-cli 
 ```
+
+
+## Other resources
+* https://www.mlflow.org/
+* https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-overview?WT.mc_id=aiml-67316-bstollnitz
+* https://jmespath.org/
+* https://docs.microsoft.com/en-us/cli/azure/ml/job?view=azure-cli-latest#az-ml-job-create?WT.mc_id=aiml-67316-bstollnitz
+* https://docs.microsoft.com/en-us/cli/azure/format-output-azure-cli?WT.mc_id=aiml-67316-bstollnitz
