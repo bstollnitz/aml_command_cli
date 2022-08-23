@@ -2,6 +2,12 @@
 
 This project shows how to train a Fashion MNIST model with an Azure ML job, and how to deploy it using an online managed endpoint. It uses the Azure ML CLI, and MLflow for tracking and model representation.
 
+
+## Blog post
+
+To learn more about the code in this repo, check out the accompanying blog post: https://bea.stollnitz.com/blog/aml-command/
+
+
 ## Azure setup
 
 * You need to have an Azure subscription. You can get a [free subscription](https://azure.microsoft.com/en-us/free?WT.mc_id=aiml-67316-bstollnitz) to try it out.
@@ -108,9 +114,7 @@ az ml online-endpoint delete --name endpoint-command-cli
 ```
 
 
-## Other resources
-* https://www.mlflow.org/
-* https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-overview?WT.mc_id=aiml-67316-bstollnitz
-* https://jmespath.org/
-* https://docs.microsoft.com/en-us/cli/azure/ml/job?view=azure-cli-latest#az-ml-job-create?WT.mc_id=aiml-67316-bstollnitz
-* https://docs.microsoft.com/en-us/cli/azure/format-output-azure-cli?WT.mc_id=aiml-67316-bstollnitz
+## Related resources
+* [YAML schema for Command Job](https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-job-command?WT.mc_id=aiml-67316-bstollnitz)
+* [az ml job commands](https://docs.microsoft.com/en-us/cli/azure/ml/job?view=azure-cli-latest#az-ml-job-create?WT.mc_id=aiml-67316-bstollnitz)
+* [Output formats for Azure CLI commands](https://docs.microsoft.com/en-us/cli/azure/format-output-azure-cli?WT.mc_id=aiml-67316-bstollnitz)
