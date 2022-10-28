@@ -2,6 +2,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 
 type: command
 description: Trains a simple neural network on the Fashion-MNIST dataset.
+experiment_name: "aml_command_cli"
 compute: azureml:cluster-cpu
 
 inputs:

@@ -5,10 +5,20 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: Current Module",
+      "name": "Train locally",
       "type": "python",
       "request": "launch",
-      "module": "${command:extension.commandvariable.file.relativeFileDotsNoExtension}"
+      "program": "${workspaceFolder}/aml_command_cli/src/train.py",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Generate test data",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/aml_command_sdk/test_data/generate_images.py",
+      "console": "integratedTerminal",
+      "justMyCode": true
     },
   ]
 }
