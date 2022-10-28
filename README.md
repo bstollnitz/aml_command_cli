@@ -96,7 +96,7 @@ az ml online-endpoint invoke --name endpoint-command-cli --request-file test_dat
 Cleanup the endpoint, to avoid getting charged.
 
 ```
-az ml online-endpoint delete --name endpoint-command-cli 
+az ml online-endpoint delete --name endpoint-command-cli -y
 ```
 
 
