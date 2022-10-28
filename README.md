@@ -66,20 +66,19 @@ mlflow models predict --model-uri "model" --input-path "test_data/images.json" -
 Create the compute cluster.
 
 ```
-cd cloud
-az ml compute create -f cluster-cpu.yml 
+az ml compute create -f cloud/cluster-cpu.yml 
 ```
 
 Create the dataset.
 
 ```
-az ml data create -f data.yml 
+az ml data create -f cloud/data.yml 
 ```
 
 Run the training job.
 
 ```
-run_id=$(az ml job create -f job.yml --query name -o tsv)
+run_id=$(az ml job create -f cloud/job.yml --query name -o tsv)
 ```
 
 Go to the Azure ML Studio and wait until the Job completes.
@@ -98,14 +97,14 @@ az ml job download --name $run_id --output-name "model"
 Create the endpoint.
 
 ```
-az ml online-endpoint create -f endpoint.yml
-az ml online-deployment create -f deployment.yml --all-traffic
+az ml online-endpoint create -f cloud/endpoint.yml
+az ml online-deployment create -f cloud/deployment.yml --all-traffic
 ```
 
 Invoke the endpoint.
 
 ```
-az ml online-endpoint invoke --name endpoint-command-cli --request-file ../test_data/images_azureml.json
+az ml online-endpoint invoke --name endpoint-command-cli --request-file test_data/images_azureml.json
 ```
 
 Cleanup the endpoint, to avoid getting charged.
