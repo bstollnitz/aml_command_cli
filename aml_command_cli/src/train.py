@@ -9,9 +9,9 @@ import mlflow
 import numpy as np
 import torch
 from mlflow.models.signature import ModelSignature
-from mlflow.types.schema import ColSpec, Schema, TensorSpec
+from mlflow.types.schema import ColSpec, DataType, Schema, TensorSpec
 from torch import nn
-from torch.utils.data import DataLoader, random_split
+from torch.utils.data import DataLoader, Subset, random_split
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 
@@ -37,10 +37,14 @@ def load_train_val_data(
     full_train_len = len(full_train_data)
     train_len = int(full_train_len * training_fraction)
     val_len = full_train_len - train_len
-    (train_data, val_data) = random_split(dataset=full_train_data,
-                                          lengths=[train_len, val_len])
-    train_loader = DataLoader(train_data, batch_size=batch_size, shuffle=True)
-    val_loader = DataLoader(val_data, batch_size=batch_size, shuffle=True)
+    train_and_val_data: list[Subset[torch.Tensor]] = random_split(
+        dataset=full_train_data, lengths=[train_len, val_len])
+    train_loader = DataLoader(train_and_val_data[0],
+                              batch_size=batch_size,
+                              shuffle=True)
+    val_loader = DataLoader(train_and_val_data[1],
+                            batch_size=batch_size,
+                            shuffle=True)
 
     return (train_loader, val_loader)
 
@@ -50,7 +54,7 @@ def save_model(model_dir: str, model: nn.Module) -> None:
     Saves the trained model.
     """
     input_schema = Schema(
-        [ColSpec(type="double", name=f"col_{i}") for i in range(784)])
+        [ColSpec(type=DataType.double, name=f"col_{i}") for i in range(784)])
     output_schema = Schema([TensorSpec(np.dtype(np.float32), (-1, 10))])
     signature = ModelSignature(inputs=input_schema, outputs=output_schema)
 

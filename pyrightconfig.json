@@ -1,0 +1,8 @@
+{
+    "include": [
+        "aml_command_cli/src/*.py",
+        "aml_command_cli/test_data/*.py"
+    ],
+    "reportMissingTypeStubs": false,
+    "reportUnknownMemberType": false,
+}
