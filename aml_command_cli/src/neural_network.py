@@ -14,6 +14,7 @@ class NeuralNetwork(nn.Module):
         self.sequence = nn.Sequential(nn.Flatten(), nn.Linear(28 * 28, 20),
                                       nn.ReLU(), nn.Linear(20, 10))
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(  # pyright: ignore [reportIncompatibleMethodOverride]
+            self, x: torch.Tensor) -> torch.Tensor:
         y_prime = self.sequence(x)
         return y_prime

@@ -3,10 +3,10 @@
 import logging
 import os
 from pathlib import Path
+from PIL import Image
 
 import numpy as np
 import pandas
-from PIL import Image
 from torchvision import datasets
 
 DATA_DIR = "aml_command_cli/test_data/data"
@@ -27,7 +27,7 @@ def generate_images(num_images: int) -> None:
     else:
         os.makedirs(IMAGES_DIR)
 
-    for i, (image, _) in enumerate(test_data):
+    for i, (image, _) in enumerate(test_data):  # pyright: ignore
         if i == num_images:
             break
         image.save(f"{IMAGES_DIR}/image_{i+1:0>3}.png")
@@ -48,7 +48,8 @@ def generate_csv_from_images() -> None:
         with Image.open(image_path) as image:
             if len(X) == 0:
                 size = image.height * image.width
-                X = np.empty((len(image_paths), size))
+                X = np.empty(  # pyright: ignore [reportConstantRedefinition]
+                    (len(image_paths), size))
             x = np.asarray(image).reshape((-1)) / 255.0
             X[i, :] = x
 

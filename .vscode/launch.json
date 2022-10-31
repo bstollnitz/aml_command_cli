@@ -16,7 +16,7 @@
       "name": "Generate test data",
       "type": "python",
       "request": "launch",
-      "program": "${workspaceFolder}/aml_command_sdk/test_data/generate_images.py",
+      "program": "${workspaceFolder}/aml_command_cli/test_data/generate_images.py",
       "console": "integratedTerminal",
       "justMyCode": true
     },
