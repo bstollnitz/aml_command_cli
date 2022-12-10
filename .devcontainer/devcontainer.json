@@ -11,11 +11,13 @@
     },
     "extensions": [
         "ms-python.python",
-        "ms-python.vscode-pylance",
         "ms-toolsai.vscode-ai"
     ],
     "features": {
         "azure-cli": "latest"
+    },
+    "hostRequirements": {
+        "memory": "8gb"
     },
     "remoteUser": "vscode",
     "onCreateCommand": "az extension add -n ml -y"
