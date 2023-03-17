@@ -75,6 +75,8 @@ Create the Azure ML model from the output.
 az ml model create --name model-command-cli --path "azureml://jobs/$run_id/outputs/model" --type mlflow_model
 ```
 
+Look for the job in the [Azure ML Studio](https://ml.azure.com/) and wait for it to complete.
+
 You don't need to download the trained model, but here's how you would do it if you wanted to:
 
 ```
